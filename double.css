@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Open+Sans:wght@300&display=swap');
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #ffffd7;
+}
+
+.navbar{
+    display: flex;
+    flex-flow: row wrap;
+    height: 100px;
+    background-color:#ea4025;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.logo{
+    flex: 20%;
+    text-align: center;
+    margin-left: 10%;
+}
+
+.logo h1{
+    color: #00003a;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 34px;
+    text-align: left;
+}
+
+.menu{
+    flex: 70%;
+    text-align: right;
+    padding: 20px;
+}
+
+.menu a{
+    color: #00003a;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 20px 16px;
+}
+
+.menu a:hover{
+    color: #810000;
+    border-top: 4px solid #810000;
+}
+
+#botao{
+    background-color:#00003a;
+    padding: 10px 25px;
+    color: white;
+    border-radius: 5px;
+    margin-left: 5%;
+    margin-right: 10%;
+}
+
+#botao:hover{
+    border: none;
+    background-color: #810000;
+    
+}
+
+.container{
+    height: 700px;
+    background-color: #ffffd7;
+}
+
+.container h2{
+    font-family: 'Libre Baskerville', serif;
+    margin-left: 10%;
+}
+
+.articles{
+    display: flex;
+    flex-flow: row wrap;
+    margin-left: 10%;
+    position: relative;
+    height: 700px;
+}
+.artigos{
+    text-align: center;
+    justify-content: center;
+    width: 700px;
+    height: 550px;
+    background-color: #ffcaa2;
+    border-radius: 10px;
+}
+
+.artig{
+    text-align: center;
+    justify-content: center;
+    width: 700px; 
+    height: 550px;
+    background-color:#ffcaa2;
+    border-radius: 10px;
+    margin-left: 10%;
+}
+
+.artigos img{
+    width: 600px;
+    height: 300px;
+}
+
+.artig img{
+    width: 600px;
+    height: 300px;
+}
+.artigos a{
+text-decoration: none;
+padding: 5px 20px;
+border: solid 1px #00003a;
+border-radius: 5px;
+margin-left: 0%;
+background-color: #00003a;
+color: white;
+}
+
+.artigos a:hover{
+    color:#00003a;
+    border: solid 1px #00003a;
+    background-color: #f7ab86;
+}
+
+.artig a{
+    text-decoration: none;
+    padding: 5px 20px;
+    border: solid 1px #00003a;
+    border-radius: 5px;
+    margin-left: 0%;
+    background-color: #00003a;
+    color: white;
+}
+
+.artig a:hover{
+        color:#00003a;
+        border: solid 1px #00003a;
+        background-color: #f7ab86;
+}
+
+.rodape{
+    margin-top: 100px;
+    height: 300px;
+    text-align: center;
+    border-top: solid 5px #00003a;
+    background-color: #ea4025;
+}
+.rodape h1{
+    font-size: 30px;
+}
+
+.rodape p{
+    font-size: 30px;
+}
