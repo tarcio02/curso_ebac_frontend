@@ -1,0 +1,35 @@
+*{
+    box-sizing: border-box;
+
+}
+body{
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+
+nav{
+    display: flex;
+    background-color: palegreen;
+    justify-content: center;
+    height: 100px;
+    align-items: center;
+}
+
+nav h1{
+    font-size: 50px;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+nav img{
+height: 90px;
+}
+
+#tarefa{
+    display: block;
+}
+
+header input{
+    margin-top: 0;
+}
