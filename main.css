@@ -35,7 +35,7 @@ body{
 }
 
 #input-new-task,
-#btn-new-task{
+#task{
     border: none;
     font-size: 1rem;
     outline: none;
@@ -43,9 +43,8 @@ body{
 }
 
 #input-new-task{
-    width: 20rem;
-    border-radius: 1rem;
-
+width: 10rem;
+border-radius: 5%;
 }
 
 #btn-new-task{
@@ -76,9 +75,21 @@ body{
     text-transform: capitalize;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     display: flex;
+    gap: 1rem;
+    transition: .4s;
+    cursor: pointer;
     justify-content: space-between;
 }
 
+#to-do-list li:hover{
+background-color: var(--color-dark3);
+border-radius: 30%;
+}
+
+    #task-feito{
+    text-decoration: line-through;
+    }
+    
 .right{
     background-color: var(--color-dark2);
     border-radius: 50%;
@@ -101,7 +112,9 @@ body{
 
 #square{
     color: var(--color-white);
+}  
+
+#lixo{
+    color: var(--color-red2);
 }
-
-
 
