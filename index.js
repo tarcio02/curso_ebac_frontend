@@ -1,38 +1,85 @@
-const localStorageKey = 'minhaLista'
+    const texto = document.querySelector('input')
+    const btnInsert = document.querySelector('.divInsert button')
+    const btnDeleteAll = document.querySelector('.header button')
+    const ul = document.querySelector('ul')
 
-$("#btn-new-task").click(function(){
-if (!$("#input-new-task").val()) {
-    alert('digite uma taks para se adicionada')
-}
-else
-{
-    let values = JSON.parse(localStorage.getItem(localStorageKey) || "[]")
-    values.push({
-        name: $("#input-new-task").val()
-    })
-    localStorage.setItem(localStorageKey, JSON.stringify(values))
-    showValues();
-}
-})
+    var itensDB = []
 
-function showValues(){
-    let values = JSON.parse(localStorage.getItem(localStorageKey) || "[]")
-    let list = $("#to-do-list")
-    list.append('')
-    for(let i = 0; i < values.length; i++)
-    {
-        +list.append(`<li>
-        <button class="right" id="square"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-square" viewBox="0 0 16 16">
-            <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/></svg>
-        </button>
-        ${values[i]['name']}
-        <button class="right" id="lixo">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>
-                <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
-            </svg>
-        </button>
-    </li>`)
+    $('btnDelete').onclick = () => {
+        itensDB = []
+        updateDB()
     }
-}
-showValues()
+
+    $('input').keypress(e => {
+        if (e.key == 'Enter' && $('input').val != '') {
+        setItemDB()
+        }
+    })
+
+    $('.divInsert button').onclick = () => {
+    if ($('input').val != '') {
+        setItemDB()
+    }
+    }
+
+    function setItemDB() {
+    if (itensDB.length >= 20) {
+        alert('Limite máximo de 20 itens atingido!')
+        return
+    }
+
+    itensDB.push({ 'item': $('input').val, 'status': '' })
+    updateDB()
+    }
+
+    function updateDB() {
+    localStorage.setItem('todolist', JSON.stringify(itensDB))
+    loadItens()
+    }
+
+    function loadItens() {
+    ul.innerHTML = "";
+    itensDB = JSON.parse(localStorage.getItem('todolist')) ?? []
+    itensDB.forEach((item, i) => {
+        insertItemTela(item.item, item.status, i)
+    })
+    }
+
+    function insertItemTela(text, status, i) {
+    const li = document.createElement('li')
+    
+    li.innerHTML = `
+        <div class="divLi">
+        <input type="checkbox" ${status} data-i=${i} onchange="done(this, ${i});" />
+        <span data-si=${i}>${text}</span>
+        <button onclick="removeItem(${i})" data-i=${i}><i class='bx bx-trash'></i></button>
+        </div>
+        `
+    ul.appendChild(li)
+
+    if (status) {
+        document.querySelector(`[data-si="${i}"]`).classList.add('line-through')
+    } else {
+        document.querySelector(`[data-si="${i}"]`).classList.remove('line-through')
+    }
+
+    $('input').value = ''
+    }
+
+    function done(chk, i) {
+
+    if (chk.checked) {
+        itensDB[i].status = 'checked' 
+    } else {
+        itensDB[i].status = '' 
+    }
+
+    updateDB()
+    }
+
+    function removeItem(i) {
+    itensDB.splice(i, 1)
+    updateDB()
+    }
+
+    loadItens()
