@@ -1,7 +1,3 @@
-    const texto = document.querySelector('input')
-    const btnInsert = document.querySelector('.divInsert button')
-    const btnDeleteAll = document.querySelector('.header button')
-    const ul = document.querySelector('ul')
 
     var itensDB = []
 
@@ -38,7 +34,7 @@
     }
 
     function loadItens() {
-    ul.innerHTML = "";
+        $('ul').innerHTML = "";
     itensDB = JSON.parse(localStorage.getItem('todolist')) ?? []
     itensDB.forEach((item, i) => {
         insertItemTela(item.item, item.status, i)
@@ -55,7 +51,7 @@
         <button onclick="removeItem(${i})" data-i=${i}><i class='bx bx-trash'></i></button>
         </div>
         `
-    ul.appendChild(li)
+        $('ul').appendChild(li)
 
     if (status) {
         document.querySelector(`[data-si="${i}"]`).classList.add('line-through')
@@ -63,7 +59,7 @@
         document.querySelector(`[data-si="${i}"]`).classList.remove('line-through')
     }
 
-    $('input').value = ''
+    $('input').val = ''
     }
 
     function done(chk, i) {
