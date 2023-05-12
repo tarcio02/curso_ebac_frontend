@@ -1,10 +1,10 @@
 
     var itensDB = []
 
-    $("#btnDelete").click = () => {
+    $('.header button').click( () => {
         itensDB = []
         updateDB()
-    }
+    })
 
     $('input').keypress(e => {
         if (e.key == 'Enter' && $('input').val() != '') {
@@ -12,11 +12,11 @@
         }
     })
 
-    $('.divInsert button').click = () => {
+    $('.divInsert button').click(() => {
     if ($('input').val() != '') {
         setItemDB()
     }
-    }
+    })
 
     function setItemDB() {
     if (itensDB.length >= 20) {
@@ -59,7 +59,7 @@
         $(`[data-si="${i}"]`).removeClass('line-through')
     }
 
-    $('input').val() = ''
+    $('input').val('')
     }
 
     function done(chk, i) {
