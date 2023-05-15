@@ -22,16 +22,6 @@ header{
     border-bottom: 1px solid gray;
 }
 
-.msgSucess{
-    display: flex;
-    justify-content: center;
-    border: 1px solid transparent;
-    background-color: green;
-    color: white;
-    margin-top: 1rem;
-    display: none;
-}
-
 h1{
     font-family: Georgia, 'Times New Roman', Times, serif;
 height: 45px;
