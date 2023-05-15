@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./main.css">
+    <script
+    src="https://code.jquery.com/jquery-3.7.0.js"
+    integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+    crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Formulário</h1>
+            <div class="imag">
+                <img src="./img/registro-online.png" alt="Formulário digital">
+            </div>
+        </div>
+        <div class="msgSucess">
+            <h2>Seus Dados Foram Enviados Com Sucesso</h2>
+        </div>
+    </header>
+    <div class="formulario">
+        <form>
+            <label class="labe" for="nome">Digite Seu Nome Completo</label>
+            <input name="naming" id="nome" type="text" placeholder="Digite Aqui">
+            <label class="labe" for="email">Digite Seu e-mail</label>
+            <input name="email" id="email" type="email" placeholder="Digite Aqui">
+            <label class="labe" for="telefone">Digite Seu Telefone</label>
+            <input id="telefone" type="tel">
+            <label class="labe" for="pf">Digite Seu CPF</label>
+            <input id="cpf" type="number">
+            <label class="labe" for="cep">Digite Seu CEP</label>
+            <input id="cep" type="number">
+            <label class="labe" for="addres">Digite Seu Endereço</label>
+            <input name="addres" id="addres" type="text" placeholder="Digite Aqui">
+            <button type="submit"><img src="./img/envio.png" alt="botão enviar"></button>
+        </form>
+    </div>
+    <script src="./js/jquery.mask.min.js"></script>
+    <script src="./js/jquery.validate.min.js"></script>
+    <script src="./js/messages_pt_BR.min.js"></script>
+    <script src="./index.js"></script>
+</body>
+</html> 
