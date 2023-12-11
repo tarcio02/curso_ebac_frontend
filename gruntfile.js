@@ -1,6 +1,6 @@
 module.exports = function(grunt){
     grunt.initConfig({
-        pkg: grunt.file.readJSON('packege.json'),
+        pkg: grunt.file.readJSON('package.json'),
         less: {
             development: {
                 files:{
@@ -18,9 +18,9 @@ module.exports = function(grunt){
     })
 
 
-    grunt.loadNpmTask('grunt-contrib-less')
-    grunt.loadNpmTask('grunt-contrib-uglify')
-    grunt.registerTask('build', ['less', 'uglify'])
+    grunt.loadNpmTasks('grunt-contrib-less')
+    grunt.loadNpmTasks('grunt-contrib-uglify')
+    grunt.registerTask('default', ['less', 'uglify'])
 }
 
 
