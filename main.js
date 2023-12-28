@@ -1,25 +1,22 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const picture = document.querySelector('#avatar');
-    const nami = document.querySelector('#nome');
-    const username = document.querySelector('#usuario');
-    const reps = document.querySelector('#repositorios');
-    const followers = document.querySelector('#seguidores');
-    const following = document.querySelector('#seguindo');
-    const link = document.querySelector('#github');
+function Pessoa (nome, idade, genero) {
+    this.nome = nome;
+    this.idade = idade;
+    this.genero = genero;
+}
 
-    fetch('https://api.github.com/users/tarcio02')
-        .then(function(res) {
-            return res.json();
-        })
-        .then(function (json) {
-            picture.src = json.avatar_url;
-            nami.innerText = json.name;
-            username.innerText = json.login;
-            reps.innerText = json.public_repos;
-            followers.innerText = json.followers;
-            following.innerText = json.following;
-            link.href = json.html_url;
-        })
+function Endereco (bairro, nomeRua, numero) {
+    Pessoa.call(this);
+    this.bairro = bairro;
+    this.nomeRua = nomeRua;
+    this.numero = numero;
+}
 
+function Paciente (situacao) {
+    Endereco.call(this);
+    this.situacao = situacao;
+}
+const pessoa1 = new Pessoa("João", 25, "masculino");
+const enderecoP1 = new Endereco("centro", "rua das oliveiras", 48);
+const pacienteP1 = new Paciente("bronquite");
 
-})
+console.log(pacienteP1)
