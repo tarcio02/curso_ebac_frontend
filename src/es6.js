@@ -11,12 +11,12 @@ function analisaNota() {
         {nome: "emanuela", nota: 4}
     ];
 
-    for (i = 0; i < alunos.length; i++) {
+    for (let i = 0; i < alunos.length; i++) {
         if (alunos[i].nota < media) {
-            console.log(`${alunos[i]} foi reprovado`)
+            console.log(`${alunos[i].nome} foi reprovado`)
         }
         else {
-            console.log(`${alunos[i]} foi aprovado`)
+            console.log(`${alunos[i].nome} foi aprovado`)
         }
     };
 };
